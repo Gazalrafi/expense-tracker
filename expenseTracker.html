@@ -20,8 +20,29 @@
     <option value="hotel">hotel</option>
     <option value="travelling">travelling</option>
  </select>
- <button onclick="saveToLocalStorage()">add expense</button>
+ <button onclick="saveData()">add expense</button>
  </list>
-<script src="expenseTracker.js"></script>
+<script >
+    function saveData(){
+    let expenseamount,description,category ;
+     expenseamount=document.getElementById("ea").value;
+      description=document.getElementById("des").value;
+      category=document.getElementById("cat").value;
+      localStorage.setItem("expenseamount",expenseamount)
+      localStorage.setItem("description",description)
+      localStorage.setItem("category",category)
+
+     
+    
+     //store the user details as an object in local storage
+    var userDetails={
+      expenseamount:expenseamount,
+      description:description,
+      category:category
+    };
+    localStorage.setItem(userDetails.category,JSON.stringify(userDetails));//store the multiple users data in local storage
+   
+   }
+</script>
 </body>
 </html>
